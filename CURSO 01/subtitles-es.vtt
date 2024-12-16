@@ -1,0 +1,529 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.220
+Hola y bienvenidos.
+
+2
+00:00:02.220 --> 00:00:03.490
+En este vídeo,
+
+3
+00:00:03.490 --> 00:00:05.730
+trataremos la evaluación del modelo.
+
+4
+00:00:05.730 --> 00:00:07.470
+Así que empecemos.
+
+5
+00:00:07.470 --> 00:00:13.400
+El objetivo de la regresión es construir un modelo para predecir con precisión un caso desconocido.
+
+6
+00:00:13.400 --> 00:00:19.200
+Para ello, debemos realizar una evaluación de regresión después de construir el modelo.
+
+7
+00:00:19.200 --> 00:00:23.040
+En este vídeo, presentaremos y analizaremos dos tipos de
+
+8
+00:00:23.040 --> 00:00:27.180
+enfoques de evaluación que se pueden utilizar para lograr este objetivo.
+
+9
+00:00:27.180 --> 00:00:34.840
+Estos enfoques consisten en entrenar y probar en el mismo conjunto de datos y dividir el entrenamiento y la prueba.
+
+10
+00:00:34.840 --> 00:00:37.660
+Hablaremos de cuáles son cada uno de ellos,
+
+11
+00:00:37.660 --> 00:00:41.750
+así como de las ventajas y desventajas de usar cada uno de estos modelos.
+
+12
+00:00:41.750 --> 00:00:46.840
+Además, presentaremos algunas métricas para determinar la precisión de los modelos de regresión.
+
+13
+00:00:46.840 --> 00:00:49.350
+Veamos el primer enfoque.
+
+14
+00:00:49.350 --> 00:00:52.520
+Al considerar los modelos de evaluación, es
+
+15
+00:00:52.520 --> 00:00:56.680
+evidente que queremos elegir el que nos dé los resultados más precisos.
+
+16
+00:00:56.680 --> 00:00:58.840
+Entonces, la pregunta es,
+
+17
+00:00:58.840 --> 00:01:02.040
+¿cómo podemos calcular la precisión de nuestro modelo?
+
+18
+00:01:02.040 --> 00:01:06.020
+En otras palabras, ¿hasta qué punto podemos confiar en este modelo para la predicción de
+
+19
+00:01:06.020 --> 00:01:07.940
+una muestra desconocida utilizando
+
+20
+00:01:07.940 --> 00:01:12.850
+un conjunto de datos determinado y después de haber creado un modelo como la regresión lineal?
+
+21
+00:01:12.850 --> 00:01:18.040
+Una de las soluciones es seleccionar una parte de nuestro conjunto de datos para probarla.
+
+22
+00:01:18.040 --> 00:01:22.740
+Por ejemplo, supongamos que tenemos 10 registros en nuestro conjunto de datos.
+
+23
+00:01:22.740 --> 00:01:25.770
+Usamos todo el conjunto de datos para el entrenamiento
+
+24
+00:01:25.770 --> 00:01:29.020
+y construimos un modelo con este conjunto de entrenamiento.
+
+25
+00:01:29.020 --> 00:01:33.010
+Ahora, seleccionamos una pequeña parte del conjunto de datos,
+
+26
+00:01:33.010 --> 00:01:35.820
+como la fila número seis a nueve,
+
+27
+00:01:35.820 --> 00:01:37.670
+pero sin las etiquetas.
+
+28
+00:01:37.670 --> 00:01:40.170
+Este conjunto se denomina conjunto de prueba y
+
+29
+00:01:40.170 --> 00:01:41.530
+contiene las etiquetas,
+
+30
+00:01:41.530 --> 00:01:46.580
+pero las etiquetas no se utilizan para la predicción y se utilizan únicamente como datos fundamentales.
+
+31
+00:01:46.580 --> 00:01:50.840
+Las etiquetas se denominan valores reales del conjunto de prueba.
+
+32
+00:01:50.840 --> 00:01:54.200
+Ahora pasamos el conjunto de características de la parte de prueba
+
+33
+00:01:54.200 --> 00:01:58.100
+a nuestro modelo creado y predecimos los valores objetivo.
+
+34
+00:01:58.100 --> 00:02:01.810
+Por último, comparamos los valores pronosticados por
+
+35
+00:02:01.810 --> 00:02:05.640
+nuestro modelo con los valores reales del conjunto de prueba.
+
+36
+00:02:05.640 --> 00:02:10.030
+Esto indica qué tan preciso es realmente nuestro modelo.
+
+37
+00:02:10.030 --> 00:02:13.960
+Existen diferentes métricas para informar sobre la precisión del modelo,
+
+38
+00:02:13.960 --> 00:02:16.450
+pero la mayoría de ellas funcionan generalmente en función de
+
+39
+00:02:16.450 --> 00:02:19.970
+la similitud de los valores pronosticados y reales.
+
+40
+00:02:19.970 --> 00:02:22.840
+Veamos una de las métricas más sencillas para
+
+41
+00:02:22.840 --> 00:02:26.090
+calcular la precisión de nuestro modelo de regresión.
+
+42
+00:02:26.090 --> 00:02:32.350
+Como se ha mencionado, simplemente comparamos los valores reales y con los valores pronosticados,
+
+43
+00:02:32.350 --> 00:02:35.250
+lo que se indica como y hat para el conjunto de pruebas.
+
+44
+00:02:35.250 --> 00:02:39.250
+El error del modelo se calcula como la diferencia media
+
+45
+00:02:39.250 --> 00:02:43.430
+entre los valores pronosticados y reales para todas las filas.
+
+46
+00:02:43.430 --> 00:02:46.380
+Podemos escribir este error como una ecuación.
+
+47
+00:02:46.380 --> 00:02:51.710
+Por lo tanto, el primer enfoque de evaluación del que acabamos de hablar es el más simple:
+
+48
+00:02:51.710 --> 00:02:54.890
+entrenar y probar en el mismo conjunto de datos.
+
+49
+00:02:54.890 --> 00:02:58.550
+Básicamente, el nombre de este enfoque lo dice todo.
+
+50
+00:02:58.550 --> 00:03:01.310
+Entrena el modelo en todo el conjunto de datos
+
+51
+00:03:01.310 --> 00:03:05.230
+y, a continuación, lo prueba con una parte del mismo conjunto de datos.
+
+52
+00:03:05.230 --> 00:03:06.730
+En un sentido general,
+
+53
+00:03:06.730 --> 00:03:11.570
+cuando se realiza una prueba con un conjunto de datos en el que se conoce el valor objetivo de cada punto de datos, se
+
+54
+00:03:11.570 --> 00:03:16.120
+puede obtener un porcentaje de predicciones precisas para el modelo.
+
+55
+00:03:16.120 --> 00:03:21.350
+Lo más probable es que este enfoque de evaluación tenga una alta precisión de entrenamiento y una
+
+56
+00:03:21.350 --> 00:03:24.430
+baja precisión fuera de la muestra, ya que
+
+57
+00:03:24.430 --> 00:03:28.470
+el modelo conoce todos los puntos de datos de prueba del entrenamiento.
+
+58
+00:03:28.470 --> 00:03:33.450
+¿Qué es la precisión del entrenamiento y la precisión fuera de la muestra?
+
+59
+00:03:33.450 --> 00:03:39.450
+Dijimos que el entrenamiento y las pruebas en el mismo conjunto de datos producen una alta precisión de entrenamiento,
+
+60
+00:03:39.450 --> 00:03:42.810
+pero ¿qué es exactamente la precisión del entrenamiento? La
+
+61
+00:03:42.810 --> 00:03:45.950
+precisión del entrenamiento es el porcentaje de
+
+62
+00:03:45.950 --> 00:03:50.600
+predicciones correctas que hace el modelo al usar el conjunto de datos de prueba.
+
+63
+00:03:50.600 --> 00:03:56.190
+Sin embargo, una alta precisión de entrenamiento no es necesariamente algo bueno.
+
+64
+00:03:56.190 --> 00:04:02.770
+Por ejemplo, tener una alta precisión de entrenamiento puede provocar un sobreajuste de los datos.
+
+65
+00:04:02.770 --> 00:04:06.530
+Esto significa que el modelo está demasiado adaptado al conjunto de datos,
+
+66
+00:04:06.530 --> 00:04:10.850
+lo que puede capturar el ruido y producir un modelo no generalizado. La
+
+67
+00:04:10.850 --> 00:04:15.200
+precisión fuera de la muestra es el porcentaje de predicciones correctas que
+
+68
+00:04:15.200 --> 00:04:19.900
+el modelo hace sobre datos con los que no se ha entrenado.
+
+69
+00:04:19.900 --> 00:04:24.520
+Al realizar un entrenamiento y una prueba en el mismo conjunto de datos, lo más probable es que la
+
+70
+00:04:24.520 --> 00:04:29.620
+precisión fuera de la muestra sea baja debido a la probabilidad de que se produzca un sobreajuste.
+
+71
+00:04:29.620 --> 00:04:31.720
+Es importante que nuestros modelos tengan una
+
+72
+00:04:31.720 --> 00:04:35.840
+alta precisión fuera de la muestra porque el propósito de nuestro modelo es,
+
+73
+00:04:35.840 --> 00:04:40.070
+por supuesto, hacer predicciones correctas a partir de datos desconocidos.
+
+74
+00:04:40.070 --> 00:04:44.230
+Entonces, ¿cómo podemos mejorar la precisión fuera de la muestra?
+
+75
+00:04:44.230 --> 00:04:49.930
+Una forma es utilizar otro enfoque de evaluación llamado división entre el entrenamiento y la prueba.
+
+76
+00:04:49.930 --> 00:04:54.930
+En este enfoque, seleccionamos una parte de nuestro conjunto de datos para el entrenamiento, por ejemplo, de la
+
+77
+00:04:54.930 --> 00:04:56.680
+fila cero a la cinco,
+
+78
+00:04:56.680 --> 00:04:58.920
+y el resto se utiliza para las pruebas, por
+
+79
+00:04:58.920 --> 00:05:01.420
+ejemplo, de la fila seis a la nueve.
+
+80
+00:05:01.420 --> 00:05:03.980
+El modelo se basa en el conjunto de entrenamiento.
+
+81
+00:05:03.980 --> 00:05:08.310
+Luego, el conjunto de características de prueba se pasa al modelo para su predicción.
+
+82
+00:05:08.310 --> 00:05:11.140
+Por último, los valores pronosticados para
+
+83
+00:05:11.140 --> 00:05:15.670
+el conjunto de prueba se comparan con los valores reales del conjunto de prueba.
+
+84
+00:05:15.670 --> 00:05:20.740
+El segundo enfoque de evaluación se denomina división entre tren y prueba.
+
+85
+00:05:20.740 --> 00:05:24.170
+La división
+
+86
+00:05:24.170 --> 00:05:27.180
+entre tren y prueba implica dividir el conjunto de datos
+
+87
+00:05:27.180 --> 00:05:29.210
+en conjuntos de entrenamiento y prueba, respectivamente, que se excluyen mutuamente.
+
+88
+00:05:29.210 --> 00:05:34.190
+Después, entrenas con el conjunto de entrenamiento y haces pruebas con el conjunto de pruebas.
+
+89
+00:05:34.190 --> 00:05:39.100
+Esto proporcionará una evaluación más precisa de la precisión fuera de la muestra, ya que
+
+90
+00:05:39.100 --> 00:05:44.470
+el conjunto de datos de prueba no forma parte del conjunto de datos que se utilizó para entrenar los datos.
+
+91
+00:05:44.470 --> 00:05:48.000
+Es más realista para los problemas del mundo real.
+
+92
+00:05:48.000 --> 00:05:52.430
+Esto significa que conocemos el resultado de cada punto de datos del conjunto de datos, por
+
+93
+00:05:52.430 --> 00:05:54.730
+lo que es ideal para realizar pruebas con él.
+
+94
+00:05:54.730 --> 00:05:58.140
+Como estos datos no se han utilizado para entrenar el modelo,
+
+95
+00:05:58.140 --> 00:06:01.860
+el modelo no conoce el resultado de estos puntos de datos.
+
+96
+00:06:01.860 --> 00:06:05.850
+Así que, en esencia, se trata realmente de una prueba fuera de la muestra.
+
+97
+00:06:05.850 --> 00:06:11.170
+Sin embargo, asegúrese de entrenar su modelo con el conjunto de pruebas posteriormente,
+
+98
+00:06:11.170 --> 00:06:14.790
+ya que no querrá perder datos potencialmente valiosos.
+
+99
+00:06:14.790 --> 00:06:18.280
+El problema de la división entre el tren y la prueba es que
+
+100
+00:06:18.280 --> 00:06:22.990
+depende en gran medida de los conjuntos de datos en los que se entrenaron y probaron los datos.
+
+101
+00:06:22.990 --> 00:06:27.520
+Esta variación hace que la división entre el tren y la prueba tenga
+
+102
+00:06:27.520 --> 00:06:32.520
+una mejor predicción fuera de la muestra que entre el entrenamiento y las pruebas en el mismo conjunto de datos,
+
+103
+00:06:32.520 --> 00:06:36.160
+pero aún presenta algunos problemas debido a esta dependencia.
+
+104
+00:06:36.160 --> 00:06:40.780
+Otro modelo de evaluación, denominado validación cruzada de pliegues K,
+
+105
+00:06:40.780 --> 00:06:43.300
+resuelve la mayoría de estos problemas.
+
+106
+00:06:43.300 --> 00:06:47.720
+¿Cómo se corrige una variación alta que resulta de una dependencia?
+
+107
+00:06:47.720 --> 00:06:50.110
+Bueno, lo promedian.
+
+108
+00:06:50.110 --> 00:06:52.930
+Permítanme explicar el concepto básico de la
+
+109
+00:06:52.930 --> 00:06:56.900
+validación cruzada de pliegues K para ver cómo podemos resolver este problema.
+
+110
+00:06:56.900 --> 00:07:02.380
+El conjunto de datos completo está representado por los puntos de la imagen en la parte superior izquierda.
+
+111
+00:07:02.380 --> 00:07:05.200
+Si tenemos K igual a cuatro veces,
+
+112
+00:07:05.200 --> 00:07:08.260
+entonces dividimos este conjunto de datos como se muestra aquí.
+
+113
+00:07:08.260 --> 00:07:10.890
+En el primer pliegue, por ejemplo,
+
+114
+00:07:10.890 --> 00:07:16.360
+utilizamos el primer 25 por ciento del conjunto de datos para las pruebas y el resto para el entrenamiento.
+
+115
+00:07:16.360 --> 00:07:22.000
+El modelo se crea con el conjunto de entrenamiento y se evalúa con el conjunto de pruebas.
+
+116
+00:07:22.000 --> 00:07:25.860
+Luego, en la siguiente ronda o en el segundo pliegue,
+
+117
+00:07:25.860 --> 00:07:28.990
+el segundo 25 por ciento del conjunto de datos se
+
+118
+00:07:28.990 --> 00:07:32.450
+usa para probar y el resto para entrenar el modelo.
+
+119
+00:07:32.450 --> 00:07:36.390
+De nuevo, se calcula la precisión del modelo.
+
+120
+00:07:36.390 --> 00:07:39.130
+Continuamos con todos los pliegues.
+
+121
+00:07:39.130 --> 00:07:43.670
+Por último, se promedia el resultado de las cuatro evaluaciones.
+
+122
+00:07:43.670 --> 00:07:47.920
+Es decir, a continuación se promedia la precisión de cada pliegue,
+
+123
+00:07:47.920 --> 00:07:50.200
+teniendo en cuenta que cada pliegue es distinto, mientras
+
+124
+00:07:50.200 --> 00:07:54.590
+que los datos de entrenamiento de un pliegue no se utilizan en otro.
+
+125
+00:07:54.590 --> 00:08:01.310
+La validación cruzada de pliegues K, en su forma más simple, realiza múltiples divisiones entre trenes y pruebas,
+
+126
+00:08:01.310 --> 00:08:05.300
+utilizando el mismo conjunto de datos, donde cada división es diferente.
+
+127
+00:08:05.300 --> 00:08:11.310
+Luego, el resultado se promedia para obtener una precisión más uniforme fuera de la muestra.
+
+128
+00:08:11.310 --> 00:08:14.520
+Queríamos mostrarle un modelo de evaluación que
+
+129
+00:08:14.520 --> 00:08:18.210
+abordara algunos de los problemas que hemos descrito en los enfoques anteriores.
+
+130
+00:08:18.210 --> 00:08:22.570
+Sin embargo, profundizar en el modelo de validación cruzada de K pliegues
+
+131
+00:08:22.570 --> 00:08:27.400
+está fuera del alcance de este curso. Gracias por ver.
+
+132
+00:08:27.400 --> 00:08:32.000
+(Música)
